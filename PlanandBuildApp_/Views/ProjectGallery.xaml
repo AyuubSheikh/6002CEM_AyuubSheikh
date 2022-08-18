@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PlanandBuildApp_.ViewModels"
+             x:Class="PlanandBuildApp_.Views.ProjectGallery">
+
+    <ContentPage.BindingContext>
+        <vm:ProjectGalleryViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Photo Gallery" 
+                HorizontalOptions="CenterAndExpand" FontAttributes="Bold,Italic" FontSize="Large" TextColor="Black"/>
+            <CarouselView ItemsSource="{Binding Gallery_carousel}" Margin="5" >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid HorizontalOptions="FillAndExpand" Padding="10">
+                                <Image Source="{Binding Image_link}" Aspect="AspectFill" WidthRequest="100" HeightRequest="300" VerticalOptions="FillAndExpand"/>
+                            </Grid>
+                            <Label Text="Upload and view images of your projects here" FontSize="Subtitle" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

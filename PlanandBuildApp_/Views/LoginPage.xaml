@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:PlanandBuildApp_.ViewModels"
+             mc:Ignorable="d"
+             x:Class="PlanandBuildApp_.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid Padding="20" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="1" Spacing="20">
+                <Label Text="Plan and Build App" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Large"
+                       TextColor="Black"/>
+                <Entry Placeholder="Input Username" Text="{Binding Username_}" />
+                <Entry Placeholder="Input Password" Text="{Binding Password_}" IsPassword="True" />
+
+                <Button x:Name="loginbttn" Text="Login" Command ="{Binding Login_Command}" HorizontalOptions="Center" CornerRadius="25" WidthRequest="200" HeightRequest="50"
+                        BorderColor="DarkBlue" BackgroundColor="Transparent" TextColor="Black" BorderWidth="5"/>
+                <Button x:Name="regbttn" Text="Register User" Command="{Binding Register_Command}" HorizontalOptions="Center" 
+                        CornerRadius="25" WidthRequest="200" HeightRequest="50"
+                        BorderColor="DarkBlue" BackgroundColor="Transparent" TextColor="Black" BorderWidth="5"/>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+    

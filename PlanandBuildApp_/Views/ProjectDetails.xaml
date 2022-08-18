@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlanandBuildApp_.Views.ProjectDetails">
+    <ContentPage.Content>
+        <Grid Padding="15">
+            <StackLayout>
+                <Label x:Name="ProjectName_" HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="black" FontAttributes="Bold"
+                       TextTransform="Uppercase"/>
+                <Label Text="Tools Needed:" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label x:Name="Tools_" TextColor="Black"/>
+                <Label Text="Steps:" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"/>
+                <Label x:Name="Steps_" TextColor="Black"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

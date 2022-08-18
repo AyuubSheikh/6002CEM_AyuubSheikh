@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:vm="clr-namespace:PlanandBuildApp_.ViewModels"
+            x:Class="PlanandBuildApp_.Views.PlanPage">
+  <!--Pages can be added as references or inline-->
+    <TabbedPage.BindingContext>
+        <vm:PlanViewModel/>
+    </TabbedPage.BindingContext>
+    <ContentPage Title="About " >
+        <StackLayout Padding="25">
+            <Label Text="Build your Projects here" HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center" TextColor="Black" FontSize="Large" VerticalOptions="Fill"/>
+            <Label Text="Create and Upload New Projects" HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center" TextColor="Black" FontSize="Subtitle"/>
+            <Label Text="Edit and View your created projects too!" HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center" TextColor="Black" FontSize="Subtitle"/>
+            <Image Source="toolbox.jpeg" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Create Projects " >
+        <ContentPage.Content>
+            <StackLayout>
+                <Grid Padding="15">
+                    <Frame CornerRadius="10" HasShadow="True" >
+                        <StackLayout>
+                            <Label Text="Plan your New Project" HorizontalTextAlignment="Center" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <Entry Text="{Binding Project_Name}" Placeholder="Enter Project Name" PlaceholderColor="Gray" />
+                            <Editor Text="{Binding Tools}" Placeholder="Enter Tools Required" PlaceholderColor="Gray" WidthRequest="100" HeightRequest="150"/>
+                            <Editor Text="{Binding Steps}" Placeholder="Enter Steps" WidthRequest="100" HeightRequest="150" PlaceholderColor="Gray"/>
+                            <Button Text="Save Project" Command="{Binding Save_Project_Command}"
+                                    CornerRadius="50" WidthRequest="250"
+                                    BorderColor="DarkBlue" BackgroundColor="Transparent" TextColor="Black"
+                                    BorderWidth="5"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Your Projects" >
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Select Project to View" FontSize="Subtitle" TextColor="Black" FontAttributes="Italic,Bold" HorizontalTextAlignment="Center" />
+                <ListView x:Name="Project_List" ItemsSource="{Binding Projects_}" HasUnevenRows="True" ItemTapped="Project_List_ItemTapped" SeparatorColor="Black">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Frame>
+                                        <StackLayout Orientation="Vertical" >
+                                            <Label Text="{Binding Project_Name}" TextColor="Black" FontAttributes="Bold" FontSize="Medium" TextTransform="Uppercase" HorizontalTextAlignment="Center"/>
+                                            <Button Text="Edit Project" Clicked="Edit_Button_Clicked"  CornerRadius="5"
+                                                    BorderColor="DarkBlue" BackgroundColor="Transparent" TextColor="Black" BorderWidth="5"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

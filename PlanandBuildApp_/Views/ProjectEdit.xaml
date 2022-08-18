@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlanandBuildApp_.Views.ProjectEdit">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label Text="Edit Project" HorizontalTextAlignment="Center" FontSize="Large"/>
+            <Entry x:Name="Project_Name" Text="{Binding Project_Name}" />
+            <Label Text="TOOLS:" TextColor="Black" FontSize="Subtitle" FontAttributes="Bold"/>
+            <Editor x:Name="Tools" Text="{Binding Tools}" WidthRequest="100" HeightRequest="150" />
+            <Label Text="STEPS::" TextColor="Black" FontSize="Subtitle" FontAttributes="Bold"/>
+            <Editor x:Name="Steps" Text="{Binding Steps}" WidthRequest="100" HeightRequest="150"/>
+            
+            <Button Text="Update Project" Clicked="Up_Button_Clicked"
+                    BorderColor="DarkBlue" BackgroundColor="Transparent" BorderWidth="5" TextColor="Black"/>
+            <Button Text="Delete Project" Clicked="Del_Button_Clicked"
+                    BorderColor="DarkBlue" BackgroundColor="Transparent" BorderWidth="5" TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
